@@ -40,9 +40,9 @@ Book::operator std::string() const noexcept {
   return "Book {name='" + name_ + "' " + AuthorsString() + "}";
 }
 
-std::ostream &operator<<(std::ostream &out, const Book &book) {
-  out << static_cast<std::string>(book);
-  return out;
+std::ostream &operator<<(std::ostream &os, const Book &book) {
+  os << static_cast<std::string>(book);
+  return os;
 }
 
 const std::string Book::AuthorsString() const {

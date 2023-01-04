@@ -54,9 +54,9 @@ Student::operator std::string() const noexcept {
          PublicationsString() + " " + TextBooksString() + "}";
 }
 
-std::ostream &operator<<(std::ostream &out, const Student &student) {
-  out << static_cast<std::string>(student);
-  return out;
+std::ostream &operator<<(std::ostream &os, const Student &student) {
+  os << static_cast<std::string>(student);
+  return os;
 }
 
 const std::string Student::PublicationsString() const {

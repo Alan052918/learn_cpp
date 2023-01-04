@@ -7,14 +7,6 @@
 #include "classes/common/person.h"
 #include "classes/common/student.h"
 
-void PrintPeople(const std::vector<std::unique_ptr<Person>>& people) {
-  std::cout << "People: [" << std::endl;
-  std::for_each(people.begin(), people.end(), [](const auto& person) {
-    std::cout << "  " << *person << std::endl;
-  });
-  std::cout << "]" << std::endl << std::endl;
-}
-
 void ConstructorsDemo() {
   std::cout << std::endl << " -- ConstructorDemo -- " << std::endl;
 
@@ -29,7 +21,7 @@ void ConstructorsDemo() {
   std::cout << war_and_peace << std::endl << std::endl;
 
   people.push_back(std::make_unique<Student>(alice));
-  PrintPeople(people);
+  std::cout << people << std::endl;
 
   // calling delegating constructors
   Student bob("Bob", 25);
@@ -40,14 +32,14 @@ void ConstructorsDemo() {
 
   people.push_back(std::make_unique<Student>(bob));
   people.push_back(std::make_unique<Student>(charlie));
-  PrintPeople(people);
+  std::cout << people << std::endl;
 
   // calling default constructor
   Student anonymous;
   std::cout << anonymous << std::boolalpha
             << (anonymous ? " is not null" : " is null") << std::endl;
   people.push_back(std::make_unique<Student>(anonymous));
-  PrintPeople(people);
+  std::cout << people << std::endl;
 
   // calling copy constructor
   Student another_alice(alice);

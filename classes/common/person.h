@@ -60,13 +60,13 @@ class Person : public std::enable_shared_from_this<Person> {
   // leading `friend` keyword: this function
   // - is a non-member function
   // - have access to the class's private members
-  friend std::ostream &operator<<(std::ostream &out, const Person &person);
+  friend std::ostream &operator<<(std::ostream &os, const Person &person);
 
   friend std::ostream &operator<<(
-      std::ostream &out, const std::vector<std::unique_ptr<Person>> &people);
+      std::ostream &os, const std::vector<std::unique_ptr<Person>> &people);
 
   friend std::ostream &operator<<(
-      std::ostream &out, const std::vector<std::weak_ptr<Person>> &people);
+      std::ostream &os, const std::vector<std::weak_ptr<Person>> &people);
 
   virtual const std::string PublicationsString() const;
 

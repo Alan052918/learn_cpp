@@ -17,19 +17,19 @@ FileHandle::~FileHandle() {
   std::cout << "[FileHandle] destructor: closing " << filename_ << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &out, FileHandle &file_handle) {
+std::ostream &operator<<(std::ostream &os, FileHandle &file_handle) {
   // set read position to the beginning of the stream
   file_handle.file_.seekg(0, std::ios::beg);
 
-  out << "+-- FileHandle Content --+" << std::endl;
+  os << "+-- FileHandle Content --+" << std::endl;
   for (std::string line; std::getline(file_handle.file_, line);)
-    out << std::move(line) << std::endl;
-  out << "+-- End of FileHandle --+" << std::endl;
+    os << std::move(line) << std::endl;
+  os << "+-- End of FileHandle --+" << std::endl;
 
   // clear state flags after reading the whole stream (eof bit is set)
   file_handle.file_.clear();
 
-  return out;
+  return os;
 }
 
 void FileHandle::Append(const std::string &content) {

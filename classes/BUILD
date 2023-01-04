@@ -1,7 +1,7 @@
 # C++ language - Classes
 # Reference: https://en.cppreference.com/w/cpp/language/classes
 
-# library of common definitions
+# common class definitions
 cc_library(
     name = "common",
     srcs = [

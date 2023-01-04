@@ -62,27 +62,27 @@ Person::operator std::string() const noexcept {
 }
 
 // std::ostream insertion operator
-std::ostream &operator<<(std::ostream &out, const Person &person) {
-  out << static_cast<std::string>(person);
-  return out;
+std::ostream &operator<<(std::ostream &os, const Person &person) {
+  os << static_cast<std::string>(person);
+  return os;
 }
 
-std::ostream &operator<<(std::ostream &out,
+std::ostream &operator<<(std::ostream &os,
                          const std::vector<std::unique_ptr<Person>> &people) {
-  out << "People{ ";
+  os << "People{ ";
   for (const std::unique_ptr<Person> &person : people)
-    out << "'" << person->name() << "' ";
-  out << "}" << std::endl;
-  return out;
+    os << "'" << person->name() << "' ";
+  os << "}" << std::endl;
+  return os;
 }
 
-std::ostream &operator<<(std::ostream &out,
+std::ostream &operator<<(std::ostream &os,
                          const std::vector<std::weak_ptr<Person>> &people) {
-  out << "People{ ";
+  os << "People{ ";
   for (const std::weak_ptr<Person> &weak_person : people)
-    if (auto person = weak_person.lock()) out << "'" << person->name() << "' ";
-  out << "}" << std::endl;
-  return out;
+    if (auto person = weak_person.lock()) os << "'" << person->name() << "' ";
+  os << "}" << std::endl;
+  return os;
 }
 
 const std::string Person::PublicationsString() const {

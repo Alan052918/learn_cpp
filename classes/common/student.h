@@ -40,11 +40,10 @@ class Student : public Person {
 
   operator std::string() const noexcept override;
 
-  friend std::ostream &operator<<(std::ostream &out, const Student &student);
+  friend std::ostream &operator<<(std::ostream &os, const Student &student);
 
   template <typename Container>
-  friend std::ostream &operator<<(std::ostream &out,
-                                  const Container &container);
+  friend std::ostream &operator<<(std::ostream &os, const Container &container);
 
   const std::string PublicationsString() const override;
 

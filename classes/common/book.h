@@ -30,7 +30,7 @@ class Book : public std::enable_shared_from_this<Book> {
 
   operator std::string() const noexcept;
 
-  friend std::ostream &operator<<(std::ostream &out, const Book &book);
+  friend std::ostream &operator<<(std::ostream &os, const Book &book);
 
   const std::string AuthorsString() const;
 

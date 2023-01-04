@@ -12,7 +12,7 @@ class FileHandle {
 
   ~FileHandle();
 
-  friend std::ostream& operator<<(std::ostream& out, FileHandle& file_handle);
+  friend std::ostream& operator<<(std::ostream& os, FileHandle& file_handle);
 
   void Append(const std::string& content);
 
