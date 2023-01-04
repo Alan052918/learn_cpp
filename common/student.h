@@ -1,13 +1,13 @@
-#ifndef OOP_STUDENT_H_
-#define OOP_STUDENT_H_
+#ifndef COMMON_STUDENT_H_
+#define COMMON_STUDENT_H_
 
 #include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "lib/book.h"
-#include "lib/person.h"
+#include "common/book.h"
+#include "common/person.h"
 
 class Student : public Person {
  public:
@@ -60,4 +60,4 @@ class Student : public Person {
   std::vector<std::weak_ptr<Book>> text_books_;
 };
 
-#endif  // OOP_STUDENT_H_
+#endif  // COMMON_STUDENT_H_

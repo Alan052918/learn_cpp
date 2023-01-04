@@ -4,5 +4,5 @@
 cc_binary(
     name = "classes",
     srcs = ["classes.cc"],
-    deps = ["//lib"],
+    deps = ["//common"],
 )

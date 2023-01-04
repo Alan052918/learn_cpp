@@ -3,9 +3,9 @@
 #include <memory>
 #include <vector>
 
-#include "lib/book.h"
-#include "lib/person.h"
-#include "lib/student.h"
+#include "common/book.h"
+#include "common/person.h"
+#include "common/student.h"
 
 void PrintPeople(const std::vector<std::unique_ptr<Person>>& people) {
   std::cout << "People: [" << std::endl;

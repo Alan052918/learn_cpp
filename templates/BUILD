@@ -4,5 +4,5 @@
 cc_binary(
     name = "templates",
     srcs = ["templates.cc"],
-    deps = ["//lib"],
+    deps = ["//common"],
 )

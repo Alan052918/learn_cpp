@@ -1,7 +1,7 @@
 # library of common definitions
 
 cc_library(
-    name = "lib",
+    name = "common",
     srcs = [
         "book.cc",
         "file_handle.cc",

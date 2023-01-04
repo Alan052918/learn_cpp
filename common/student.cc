@@ -1,12 +1,12 @@
-#include "lib/student.h"
+#include "common/student.h"
 
 #include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "lib/book.h"
-#include "lib/person.h"
+#include "common/book.h"
+#include "common/person.h"
 
 Student::Student(const std::string &name, const int age,
                  const std::vector<std::weak_ptr<Book>> &publications,

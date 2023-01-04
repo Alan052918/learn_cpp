@@ -1,5 +1,5 @@
-#ifndef LIB_FILE_H_
-#define LIB_FILE_H_
+#ifndef COMMON_FILE_H_
+#define COMMON_FILE_H_
 
 #include <fstream>
 #include <iostream>
@@ -21,4 +21,4 @@ class FileHandle {
   std::fstream file_;
 };
 
-#endif  // LIB_FILE_H_
+#endif  // COMMON_FILE_H_

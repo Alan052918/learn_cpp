@@ -1,12 +1,12 @@
-#ifndef OOP_PERSON_H_
-#define OOP_PERSON_H_
+#ifndef COMMON_PERSON_H_
+#define COMMON_PERSON_H_
 
 #include <iostream>
 #include <memory>
 #include <string>
 #include <vector>
 
-#include "lib/book.h"
+#include "common/book.h"
 
 class Book;
 
@@ -90,4 +90,4 @@ class Person : public std::enable_shared_from_this<Person> {
   std::vector<std::weak_ptr<Book>> publications_;
 };
 
-#endif  // OOP_PERSON_H_
+#endif  // COMMON_PERSON_H_

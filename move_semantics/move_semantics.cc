@@ -3,9 +3,9 @@
 #include <memory>
 #include <vector>
 
-#include "lib/book.h"
-#include "lib/person.h"
-#include "lib/student.h"
+#include "common/book.h"
+#include "common/person.h"
+#include "common/student.h"
 
 int main(int argc, char const* argv[]) {
   std::vector<std::weak_ptr<Person>> people;
