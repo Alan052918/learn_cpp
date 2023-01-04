@@ -1,8 +1,8 @@
 #include <iostream>
 #include <memory>
 
-#include "common/file_handle.h"
-#include "common/person.h"
+#include "classes/common/file_handle.h"
+#include "classes/common/person.h"
 
 void UniquePointerDemo() {
   std::cout << std::endl << " -- UniquePointerDemo -- " << std::endl;
