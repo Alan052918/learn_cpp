@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "common/person.h"
+#include "classes/common/person.h"
 
 class Person;
 

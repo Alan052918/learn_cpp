@@ -1,5 +1,5 @@
-#ifndef COMMON_FILE_H_
-#define COMMON_FILE_H_
+#ifndef CLASSES_COMMON_FILE_H_
+#define CLASSES_COMMON_FILE_H_
 
 #include <fstream>
 #include <iostream>
@@ -21,4 +21,4 @@ class FileHandle {
   std::fstream file_;
 };
 
-#endif  // COMMON_FILE_H_
+#endif  // CLASSES_COMMON_FILE_H_

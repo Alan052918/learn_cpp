@@ -1,4 +1,4 @@
-#include "common/person.h"
+#include "classes/common/person.h"
 
 #include <algorithm>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <vector>
 
-#include "common/book.h"
+#include "classes/common/book.h"
 
 // complete constructor
 Person::Person(const std::string &name, int age,

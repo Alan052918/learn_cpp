@@ -1,4 +1,4 @@
-#include "common/book.h"
+#include "classes/common/book.h"
 
 #include <algorithm>
 #include <iostream>
@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "common/person.h"
+#include "classes/common/person.h"
 
 Book::Book(const std::string &name,
            const std::vector<std::weak_ptr<Person>> &authors)
