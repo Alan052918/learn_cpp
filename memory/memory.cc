@@ -71,8 +71,7 @@ void SharedPointerDemo() {
   std::cout << "shared_alice6 by shared_ptr move assignment: "
             << shared_alice6->name()
             << " use_count=" << shared_alice.use_count()
-            << " unique=" << shared_alice.unique() << std::endl
-            << std::endl;
+            << " unique=" << shared_alice.unique() << std::endl;
 
   std::cout << std::endl << " -- SharedPointerDemo exit scope-- " << std::endl;
 }
@@ -95,7 +94,7 @@ void WeakPointerDemo() {
   if (auto temp_shared_alice = weak_alice2.lock()) {
     std::cout << temp_shared_alice->name() << std::endl;
   } else {
-    std::cout << "weak_alice2 is a dangling pointer" << std::endl << std::endl;
+    std::cout << "weak_alice2 is a dangling pointer" << std::endl;
   }
 
   std::cout << std::endl << " -- WeakPointerDemo exit scope -- " << std::endl;
