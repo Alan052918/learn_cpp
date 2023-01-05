@@ -7,11 +7,12 @@ cc_library(
     srcs = ["common/print_containers.cc"],
     hdrs = ["common/print_containers.h"],
     visibility = ["//visibility:public"],
+    deps = ["//classes:common"],
 )
 
 cc_binary(
     name = "templates",
-    srcs = ["templates.cc"],
+    srcs = ["templates_demo.cc"],
     deps = [
         "//classes:common",
         "//templates:common",

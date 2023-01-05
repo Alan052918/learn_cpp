@@ -15,6 +15,8 @@
 #include <unordered_set>
 #include <vector>
 
+#include "classes/common/person.h"
+
 namespace templates::common {
 
 // Sequential containers
@@ -130,46 +132,78 @@ void Print(const std::priority_queue<T> &container) {
 
 }  // namespace templates::common
 
-// Explicit instantiation
+// Explicit instantiation declarations
+// - prevents implicit instantiations of the template
 namespace templates::common {
 
 // Sequential containers
 
-template void Print<int>(const std::vector<int> &container);
+template void Print(const std::vector<int> &container);
+template void Print(const std::deque<int> &container);
+template void Print(const std::list<int> &container);
+template void Print(const std::forward_list<int> &container);
 
-template void Print<int>(const std::deque<int> &container);
+template void Print(const std::vector<double> &container);
+template void Print(const std::deque<double> &container);
+template void Print(const std::list<double> &container);
+template void Print(const std::forward_list<double> &container);
 
-template void Print<int>(const std::list<int> &container);
+template void Print(const std::vector<std::string> &container);
+template void Print(const std::deque<std::string> &container);
+template void Print(const std::list<std::string> &container);
+template void Print(const std::forward_list<std::string> &container);
 
-template void Print<int>(const std::forward_list<int> &container);
+template void Print(const std::vector<Person> &container);
+template void Print(const std::deque<Person> &container);
+template void Print(const std::list<Person> &container);
+template void Print(const std::forward_list<Person> &container);
 
 // Associative containers
 
-template void Print<int>(const std::set<int> &container);
+template void Print(const std::set<int> &container);
+template void Print(const std::map<int, int> &container);
+template void Print(const std::multiset<int> &container);
+template void Print(const std::multimap<int, int> &container);
 
-template void Print<int, int>(const std::map<int, int> &container);
+template void Print(const std::set<double> &container);
+template void Print(const std::map<double, int> &container);
+template void Print(const std::multiset<double> &container);
+template void Print(const std::multimap<double, int> &container);
 
-template void Print<int>(const std::multiset<int> &container);
-
-template void Print<int, int>(const std::multimap<int, int> &container);
+template void Print(const std::set<std::string> &container);
+template void Print(const std::map<std::string, int> &container);
+template void Print(const std::multiset<std::string> &container);
+template void Print(const std::multimap<std::string, int> &container);
 
 // Unordered associative containers
 
-template void Print<int>(const std::unordered_set<int> &container);
+template void Print(const std::unordered_set<int> &container);
+template void Print(const std::unordered_map<int, int> &container);
+template void Print(const std::unordered_multiset<int> &container);
+template void Print(const std::unordered_multimap<int, int> &container);
 
-template void Print<int, int>(const std::unordered_map<int, int> &container);
+template void Print(const std::unordered_set<double> &container);
+template void Print(const std::unordered_map<double, int> &container);
+template void Print(const std::unordered_multiset<double> &container);
+template void Print(const std::unordered_multimap<double, int> &container);
 
-template void Print<int>(const std::unordered_multiset<int> &container);
-
-template void Print<int, int>(
-    const std::unordered_multimap<int, int> &container);
+template void Print(const std::unordered_set<std::string> &container);
+template void Print(const std::unordered_map<std::string, int> &container);
+template void Print(const std::unordered_multiset<std::string> &container);
+template void Print(const std::unordered_multimap<std::string, int> &container);
 
 // Container adapters
 
-template void Print<int>(const std::stack<int> &container);
+template void Print(const std::stack<int> &container);
+template void Print(const std::queue<int> &container);
+template void Print(const std::priority_queue<int> &container);
 
-template void Print<int>(const std::queue<int> &container);
+template void Print(const std::stack<double> &container);
+template void Print(const std::queue<double> &container);
+template void Print(const std::priority_queue<double> &container);
 
-template void Print<int>(const std::priority_queue<int> &container);
+template void Print(const std::stack<std::string> &container);
+template void Print(const std::queue<std::string> &container);
+template void Print(const std::priority_queue<std::string> &container);
 
 }  // namespace templates::common

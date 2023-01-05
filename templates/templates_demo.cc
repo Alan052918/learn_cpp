@@ -26,9 +26,10 @@ int main() {
   people.emplace_back("Bob");
   people.emplace_back("Charlie");
   people.emplace_back("Dave");
+  templates::common::Print(people);
 
-  // std::vector<std::string> vec{"one", "two", "three"};
-  // templates::common::Print(vec);
+  std::vector<std::string> vec{"one", "two", "three"};
+  templates::common::Print(vec);
 
   std::list<int> list{1, 2, 3};
   templates::common::Print(list);
