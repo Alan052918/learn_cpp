@@ -1,53 +1,35 @@
+#include <algorithm>
+#include <deque>
+#include <forward_list>
 #include <iostream>
+#include <list>
+#include <map>
 #include <memory>
+#include <set>
+#include <string>
+#include <string_view>
 #include <type_traits>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
-class Person {
- public:
-  Person(const std::string& name) : name_(name) {}
-  const std::string& GetName() const { return name_; }
-
-  friend std::ostream& operator<<(std::ostream& os, const Person& person) {
-    os << person.name_;
-    return os;
-  }
-
-  template <typename Container>
-  friend typename std::enable_if<std::is_same<typename Container::value_type,
-                                              std::weak_ptr<Person>>::value,
-                                 std::ostream&>::type
-  operator<<(std::ostream& os, const Container& people) {
-    os << "People: ";
-    for (const auto& person : people) {
-      if (auto p = person.lock()) {
-        os << p->GetName() << " ";
-      }
-    }
-    return os;
-  }
-
- private:
-  std::string name_;
-};
+#include "classes/common/person.h"
+#include "classes/common/student.h"
+#include "templates/common/print_containers.h"
 
 int main() {
-  std::vector<std::weak_ptr<Person>> people_vec;
+  std::vector<Person> people;
 
-  Person alice{"Alice"};
-  std::cout << "alice: " << alice.GetName() << std::endl;
+  Person alice("Alice");
+  people.push_back(alice);
 
-  auto shared_alice = std::make_shared<Person>(alice);
-  std::cout << "shared_alice: " << shared_alice->GetName() << std::endl;
+  people.emplace_back("Bob");
+  people.emplace_back("Charlie");
+  people.emplace_back("Dave");
 
-  people_vec.push_back(shared_alice);
-  std::cout << "back of people: " << people_vec.back().lock()->GetName()
-            << std::endl;
+  // std::vector<std::string> vec{"one", "two", "three"};
+  // templates::common::Print(vec);
 
-  auto shared_bob = std::make_shared<Person>("Bob");
-  people_vec.push_back(shared_bob);
-  std::cout << "back of people: " << people_vec.back().lock()->GetName()
-            << std::endl;
-
-  std::cout << people_vec << std::endl;  // Outputs "People: Alice Bob Eve "
+  std::list<int> list{1, 2, 3};
+  templates::common::Print(list);
 }
