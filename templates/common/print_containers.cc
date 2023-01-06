@@ -16,6 +16,7 @@
 #include <vector>
 
 #include "classes/common/person.h"
+#include "print_containers.h"
 
 namespace templates::common {
 
