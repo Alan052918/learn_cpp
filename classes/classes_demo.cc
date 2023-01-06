@@ -8,7 +8,7 @@
 #include "classes/common/student.h"
 
 void ConstructorsDemo() {
-  std::cout << std::endl << " -- ConstructorDemo -- " << std::endl;
+  std::cout << " --- ConstructorDemo --- " << std::endl;
 
   std::vector<std::unique_ptr<Person>> people;
   people.reserve(3);
@@ -49,9 +49,9 @@ void ConstructorsDemo() {
   // calling move constructor
   Student moved_bob(std::move(bob));
   std::cout << "moved bob: " << moved_bob << std::endl;
-  std::cout << "original bob: " << bob << std::endl << std::endl;
+  std::cout << "original bob: " << bob << std::endl;
 
-  std::cout << std::endl << " -- ConstructorDemo exit scope -- " << std::endl;
+  std::cout << std::endl << " --- ConstructorDemo exit scope --- " << std::endl;
 }
 
 int main(int argc, char const* argv[]) { ConstructorsDemo(); }

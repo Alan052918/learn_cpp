@@ -67,24 +67,6 @@ std::ostream &operator<<(std::ostream &os, const Person &person) {
   return os;
 }
 
-std::ostream &operator<<(std::ostream &os,
-                         const std::vector<std::unique_ptr<Person>> &people) {
-  os << "People{ ";
-  for (const std::unique_ptr<Person> &person : people)
-    os << "'" << person->name() << "' ";
-  os << "}" << std::endl;
-  return os;
-}
-
-std::ostream &operator<<(std::ostream &os,
-                         const std::vector<std::weak_ptr<Person>> &people) {
-  os << "People{ ";
-  for (const std::weak_ptr<Person> &weak_person : people)
-    if (auto person = weak_person.lock()) os << "'" << person->name() << "' ";
-  os << "}" << std::endl;
-  return os;
-}
-
 const std::string Person::PublicationsString() const {
   std::string publications_str{"publications={ "};
   for (const auto &weak_book : publications_) {

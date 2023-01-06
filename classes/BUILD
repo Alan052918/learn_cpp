@@ -21,6 +21,6 @@ cc_library(
 
 cc_binary(
     name = "classes",
-    srcs = ["classes.cc"],
+    srcs = ["classes_demo.cc"],
     deps = ["//classes:common"],
 )
