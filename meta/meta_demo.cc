@@ -16,8 +16,8 @@
 #include "classes/common/person.h"
 #include "meta/common/print_containers.h"
 
-int main() {
-  std::cout << "--- MetaDemo exit scope ---" << std::endl;
+void TemplateFunctionsDemo() {
+  std::cout << "--- MetaDemo ---" << std::endl;
 
   std::vector<std::weak_ptr<Person>> people_vec;
 
@@ -47,3 +47,5 @@ int main() {
 
   std::cout << std::endl << "--- MetaDemo exit scope ---" << std::endl;
 }
+
+int main() { TemplateFunctionsDemo(); }
