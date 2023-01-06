@@ -16,6 +16,7 @@
 #include "classes/common/person.h"
 #include "classes/common/student.h"
 #include "templates/common/print_containers.h"
+#include "templates/templates_lib.h"
 
 int main() {
   std::vector<Person> people;
@@ -33,4 +34,7 @@ int main() {
 
   std::list<int> list{1, 2, 3};
   templates::common::Print(list);
+
+  std::vector<Foo> foos{Foo(0), Foo(1), Foo(2)};
+  std::cout << foos << std::endl;
 }

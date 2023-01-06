@@ -10,12 +10,19 @@ cc_library(
     deps = ["//classes:common"],
 )
 
+cc_library(
+    name = "lib",
+    srcs = ["templates_lib.h", "templates_lib.cc",],
+    hdrs = ["templates_lib.h"],
+)
+
 cc_binary(
     name = "templates",
     srcs = ["templates_demo.cc"],
     deps = [
         "//classes:common",
         "//templates:common",
+        "//templates:lib",
     ],
 )
 
