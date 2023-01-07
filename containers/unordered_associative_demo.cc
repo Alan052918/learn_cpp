@@ -24,6 +24,8 @@ void loopErase() {
 }
 
 int main() {
+  std::cout << std::boolalpha;
+
   std::unordered_map<std::string, int> payroll;
   payroll.insert(std::make_pair("adam", 11000));
   payroll.insert({"alan", 10000});
