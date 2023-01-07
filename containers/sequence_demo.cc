@@ -6,9 +6,11 @@
 #include <string>
 #include <vector>
 
-#include "templates/common/print_containers.h"
+// #include "templates/common/print_containers.h"
+#include "meta/common/print_containers.h"
 
 int main(int argc, char const *argv[]) {
   std::vector<std::string> payroll{"John", "Jane", "Jack", "Jill"};
-  templates::common::Print(payroll);
+  // templates::common::Print(payroll);
+  meta::common::Print("payroll", payroll);
 }

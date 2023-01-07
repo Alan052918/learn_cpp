@@ -3,18 +3,21 @@
 
 cc_binary(
     name = "associative",
-    srcs = ["associative.cc"],
-    deps = ["//templates:common"],
+    srcs = ["associative_demo.cc"],
+    # deps = ["//templates:common"],
+    deps = ["//meta:common"],
 )
 
 cc_binary(
     name = "sequence",
-    srcs = ["sequence.cc"],
-    deps = ["//templates:common"],
+    srcs = ["sequence_demo.cc"],
+    # deps = ["//templates:common"],
+    deps = ["//meta:common"],
 )
 
 cc_binary(
     name = "unordered_associative",
-    srcs = ["unordered_associative.cc"],
-    deps = ["//templates:common"],
+    srcs = ["unordered_associative_demo.cc"],
+    # deps = ["//templates:common"],
+    deps = ["//meta:common"],
 )

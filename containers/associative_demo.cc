@@ -3,7 +3,8 @@
 #include <set>
 #include <string>
 
-#include "templates/common/print_containers.h"
+// #include "templates/common/print_containers.h"
+#include "meta/common/print_containers.h"
 
 int main(int argc, char const *argv[]) {
   std::map<std::string, int> ordered_payroll;
@@ -13,5 +14,6 @@ int main(int argc, char const *argv[]) {
   ordered_payroll.emplace("Jill", 4000);
   ordered_payroll.emplace("Jenny", 5000);
   std::cout << std::endl << "map reserves insertion order" << std::endl;
-  templates::common::Print(ordered_payroll);
+  // templates::common::Print(ordered_payroll);
+  meta::common::Print("ordered_payroll", ordered_payroll);
 }

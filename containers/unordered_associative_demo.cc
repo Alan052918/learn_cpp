@@ -4,19 +4,23 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "templates/common/print_containers.h"
+// #include "templates/common/print_containers.h"
+#include "meta/common/print_containers.h"
 
 void loopErase() {
   std::cout << std::endl << "loopErase demo" << std::endl;
 
   std::cout << "initial: ";
   std::unordered_set<int> num_set({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-  templates::common::Print(num_set);
-  for (auto iter = num_set.begin(); iter != num_set.end();) {
+  // templates::common::Print(num_set);
+  meta::common::Print("num_set", num_set);
+
+  for (auto iter = num_set.begin(); iter != num_set.end();)
     iter = (*iter & 1) == 1 ? num_set.erase(iter) : std::next(iter);
-  }
+
   std::cout << "after erasing odd numbers: ";
-  templates::common::Print(num_set);
+  // templates::common::Print(num_set);
+  meta::common::Print("num_set", num_set);
 }
 
 int main() {
@@ -46,7 +50,8 @@ int main() {
 
   std::cout << std::endl
             << "unordered map mess with insertion order" << std::endl;
-  templates::common::Print(payroll);
+  // templates::common::Print(payroll);
+  meta::common::Print("payroll", payroll);
 
   loopErase();
 }
