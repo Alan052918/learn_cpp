@@ -15,7 +15,7 @@
 
 #include "meta/common/print_containers.h"
 
-namespace meta::common {
+namespace meta {
 
 // vector, deque, list, forward_list
 // set, multiset, unordered_set, unordered_multiset
@@ -67,9 +67,9 @@ Print(const std::string_view name, const Container &container) {
   std::cout << "}" << std::endl;
 }
 
-}  // namespace meta::common
+}  // namespace meta
 
-namespace meta::common {
+namespace meta {
 
 // vector, deque, list, forward_list
 
@@ -190,4 +190,4 @@ template void Print(const std::string_view name,
 //     const std::string_view name,
 //     const std::unordered_multimap<std::weak_ptr<Person>, int> &container);
 
-}  // namespace meta::common
+}  // namespace meta

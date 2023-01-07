@@ -18,7 +18,7 @@
 
 #include "classes/common/person.h"
 
-namespace meta::common {
+namespace meta {
 
 // vector, deque, list, forward_list
 // set, multiset, unordered_set, unordered_multiset
@@ -54,9 +54,9 @@ std::enable_if_t<
                                            typename Container::mapped_type>>>
 Print(const std::string_view name, const Container &container);
 
-}  // namespace meta::common
+}  // namespace meta
 
-namespace meta::common {
+namespace meta {
 
 // vector, deque, list, forward_list
 
@@ -184,6 +184,6 @@ extern template void Print(
 //     const std::string_view name,
 //     const std::unordered_multimap<std::weak_ptr<Person>, int> &container);
 
-}  // namespace meta::common
+}  // namespace meta
 
 #endif  // META_COMMON_PRINT_CONTAINERS_H_
