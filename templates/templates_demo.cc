@@ -16,7 +16,7 @@
 #include "classes/common/person.h"
 #include "classes/common/student.h"
 #include "templates/common/print_containers.h"
-#include "templates/templates_lib.h"
+#include "templates/templates_lib_header_only.h"
 
 int main() {
   std::vector<Person> people;

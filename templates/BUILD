@@ -4,7 +4,7 @@
 # common utility functions
 cc_library(
     name = "common",
-    srcs = ["common/print_containers.cc"],
+    srcs = ["common/print_containers.h"],
     hdrs = ["common/print_containers.h"],
     visibility = ["//visibility:public"],
     deps = ["//classes:common"],
@@ -12,8 +12,17 @@ cc_library(
 
 cc_library(
     name = "lib",
-    srcs = ["templates_lib.h", "templates_lib.cc",],
+    srcs = [
+        "templates_lib.cc",
+        "templates_lib.h",
+    ],
     hdrs = ["templates_lib.h"],
+)
+
+cc_library(
+    name = "lib_header_only",
+    srcs = ["templates_lib_header_only.h"],
+    hdrs = ["templates_lib_header_only.h"],
 )
 
 cc_binary(
@@ -22,7 +31,7 @@ cc_binary(
     deps = [
         "//classes:common",
         "//templates:common",
-        "//templates:lib",
+        "//templates:lib_header_only",
     ],
 )
 

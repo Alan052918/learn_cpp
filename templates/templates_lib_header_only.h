@@ -1,5 +1,5 @@
-#ifndef TEMPLATES_COMMON_PRINT_CONTAINERS_H_
-#define TEMPLATES_COMMON_PRINT_CONTAINERS_H_
+#ifndef TEMPLATES_TEMPLATES_LIB_H_
+#define TEMPLATES_TEMPLATES_LIB_H_
 
 #include <algorithm>
 #include <deque>
@@ -20,12 +20,25 @@
 
 #include "classes/common/person.h"
 
-// For C++ templates, including the definitions in header is the only way to
-// compile, since the compiler needs to know the full definition of the
-// templates in order to instantiate.
-// https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
+class Foo {
+ public:
+  Foo(int val) : val_(val) {}
 
-namespace templates::common {
+  // friend templates
+  // https://isocpp.org/wiki/faq/templates#template-friends
+  // just put the friend template function definition in the class already
+  template <typename Container>
+  friend std::ostream &operator<<(std::ostream &os, const Container &foos) {
+    for (const auto &foo : foos) os << foo.val_ << " ";
+    return os;
+  }
+
+  const int val() const { return val_; }
+  void val(const int val) { val_ = val; }
+
+ private:
+  int val_;
+};
 
 // Sequential containers
 
@@ -126,25 +139,16 @@ void Print(const std::unordered_multimap<K, V> &container) {
 template <typename T>
 void Print(const std::stack<T> &container) {
   // TODO: Implement this function.
-  std::cerr << "void Print(const std::stack<T> &container) Not implemented yet"
-            << std::endl;
 }
 
 template <typename T>
 void Print(const std::queue<T> &container) {
   // TODO: Implement this function.
-  std::cerr << "void Print(const std::queue<T> &container) Not implemented yet"
-            << std::endl;
 }
 
 template <typename T>
 void Print(const std::priority_queue<T> &container) {
   // TODO: Implement this function.
-  std::cerr << "void Print(const std::priority_queue<T> &container) Not "
-               "implemented yet"
-            << std::endl;
 }
 
-}  // namespace templates::common
-
-#endif  // TEMPLATES_COMMON_PRINT_CONTAINERS_H_
+#endif  // TEMPLATES_TEMPLATES_LIB_H_
