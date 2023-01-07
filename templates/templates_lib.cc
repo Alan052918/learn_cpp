@@ -8,6 +8,8 @@ const int Foo::val() const { return val_; }
 
 void Foo::val(const int val) { val_ = val; }
 
+namespace templates {
+
 // Sequential containers
 
 template <typename T>
@@ -119,6 +121,10 @@ void Print(const std::priority_queue<T> &container) {
   // TODO: Implement this function.
 }
 
+}  // namespace templates
+
+namespace templates {
+
 ///////////////////////////////////////////////////////////////////////////////
 // Explicit instantiation declarations
 // - prevents implicit instantiations of the template
@@ -194,3 +200,5 @@ template void Print(const std::queue<std::string> &container);
 template void Print(const std::priority_queue<std::string> &container);
 
 ///////////////////////////////////////////////////////////////////////////////
+
+}  // namespace templates

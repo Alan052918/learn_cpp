@@ -40,6 +40,8 @@ class Foo {
   int val_;
 };
 
+namespace templates {
+
 // Sequential containers
 
 template <typename T>
@@ -150,5 +152,7 @@ template <typename T>
 void Print(const std::priority_queue<T> &container) {
   // TODO: Implement this function.
 }
+
+}  // namespace templates
 
 #endif  // TEMPLATES_TEMPLATES_LIB_H_

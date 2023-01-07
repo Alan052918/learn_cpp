@@ -40,6 +40,8 @@ class Foo {
   int val_;
 };
 
+namespace templates {
+
 // Sequential containers
 
 template <typename T>
@@ -92,6 +94,10 @@ void Print(const std::queue<T> &container);
 
 template <typename T>
 void Print(const std::priority_queue<T> &container);
+
+}  // namespace templates
+
+namespace templates {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Template instantiation
@@ -178,5 +184,7 @@ extern template void Print(const std::queue<std::string> &container);
 extern template void Print(const std::priority_queue<std::string> &container);
 
 ///////////////////////////////////////////////////////////////////////////////
+
+}  // namespace templates
 
 #endif  // TEMPLATES_TEMPLATES_LIB_H_
