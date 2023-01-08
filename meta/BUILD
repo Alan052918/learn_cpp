@@ -3,7 +3,6 @@
 
 cc_library(
     name = "common",
-    srcs = ["common/print_containers.h"],
     hdrs = ["common/print_containers.h"],
     visibility = ["//visibility:public"],
     deps = ["//classes:common"],
