@@ -4,7 +4,6 @@
 # common utility functions
 cc_library(
     name = "common",
-    srcs = ["common/print_containers.h"],
     hdrs = ["common/print_containers.h"],
     visibility = ["//visibility:public"],
     deps = ["//classes:common"],
@@ -12,16 +11,13 @@ cc_library(
 
 cc_library(
     name = "lib",
-    srcs = [
-        "templates_lib.cc",
-        "templates_lib.h",
-    ],
+    srcs = ["templates_lib.cc"],
     hdrs = ["templates_lib.h"],
+    deps = ["//classes:common"],
 )
 
 cc_library(
     name = "lib_header_only",
-    srcs = ["templates_lib_header_only.h"],
     hdrs = ["templates_lib_header_only.h"],
 )
 
@@ -37,10 +33,9 @@ cc_binary(
 
 cc_test(
     name = "common_test",
-    srcs = ["print_containers_unittest.cc"],
-    copts = ["-Iexternal/gtest/include"],
+    srcs = ["print_containers_test.cc"],
     deps = [
         "//templates:common",
-        "@gtest//:main",
+        "@com_google_googletest//:gtest_main",
     ],
 )
