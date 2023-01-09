@@ -33,7 +33,7 @@ cc_binary(
 
 cc_test(
     name = "common_test",
-    srcs = ["print_containers_test.cc"],
+    srcs = ["common/print_containers_test.cc"],
     deps = [
         "//templates:common",
         "@com_google_googletest//:gtest_main",

@@ -16,3 +16,13 @@ cc_binary(
         "//meta:common",
     ],
 )
+
+cc_test(
+    name = "common_test",
+    srcs = ["common/print_containers_test.cc"],
+    deps = [
+        "//classes:common",
+        "//meta:common",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
