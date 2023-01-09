@@ -17,7 +17,7 @@
 #include "meta/common/print_containers.h"
 
 void TemplateFunctionsDemo() {
-  std::cout << "--- MetaDemo ---" << std::endl;
+  std::cout << std::endl << "--- MetaDemo ---" << std::endl;
 
   std::vector<std::weak_ptr<Person>> people_vec;
 
