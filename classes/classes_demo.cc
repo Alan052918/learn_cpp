@@ -4,11 +4,12 @@
 #include <vector>
 
 #include "classes/common/book.h"
+#include "classes/common/file_handle.h"
 #include "classes/common/person.h"
 #include "classes/common/student.h"
 
 void ConstructorsDemo() {
-  std::cout << " --- ConstructorDemo --- " << std::endl;
+  std::cout << std::endl << " --- ConstructorDemo --- " << std::endl;
 
   std::vector<std::unique_ptr<Person>> people;
   people.reserve(3);
@@ -54,4 +55,29 @@ void ConstructorsDemo() {
   std::cout << std::endl << " --- ConstructorDemo exit scope --- " << std::endl;
 }
 
-int main(int argc, char const* argv[]) { ConstructorsDemo(); }
+void RAIIDemo() {
+  std::cout << std::endl << " --- RAIIDemo --- " << std::endl;
+
+  try {
+    std::cout << "enter scope" << std::endl;
+
+    FileHandle file_handle("myfile.txt");
+
+    file_handle.Append("Hello, World!");
+    std::cout << file_handle << std::endl;
+
+    file_handle.Append("It's Junda.");
+    std::cout << file_handle << std::endl;
+
+    std::cout << "exit scope" << std::endl;
+  } catch (const std::exception& e) {
+    std::cerr << e.what() << std::endl;
+  }
+
+  std::cout << std::endl << " --- RAIIDemo exit scope --- " << std::endl;
+}
+
+int main(int argc, char const* argv[]) {
+  ConstructorsDemo();
+  RAIIDemo();
+}
