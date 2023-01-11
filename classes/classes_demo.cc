@@ -77,7 +77,44 @@ void RAIIDemo() {
   std::cout << std::endl << " --- RAIIDemo exit scope --- " << std::endl;
 }
 
+// ----------------------------------------------------------------------------
+// VTable monkey patching example: (https://gist.github.com/netguy204/6097063)
+// Doesn't work on macOS Ventura 13.1: vtable is in `__DATA_CONST` section of
+// virtual memory (https://developer.apple.com/forums/thread/678123)
+class Foo {
+ public:
+  virtual void Bar() { std::cout << "Bar" << std::endl; }
+};
+
+void DynamicOverride(Foo* foo) { std::cout << "Qux" << std::endl; }
+
+void MonkeyPatchingDemo() {
+  std::cout << std::endl << " --- MonkeyPatchingDemo --- " << std::endl;
+
+  Foo* foo = new Foo();
+  void** vtable = *(void***)foo;
+
+  foo->Bar();
+
+  std::cout << "mess with Foo's vtable..." << std::endl;
+  void (Foo::*ptr)() = &Foo::Bar;
+  void* offset = *(void**)&ptr;
+  vtable[((uintptr_t)offset) / sizeof(void*)] = (void*)&DynamicOverride;
+  std::cout << "done" << std::endl;
+
+  foo->Bar();
+  std::cout << "affects future instances as well" << std::endl;
+
+  Foo* new_foo = new Foo();
+  new_foo->Bar();
+
+  std::cout << std::endl
+            << " --- MonkeyPatchingDemo exit scope --- " << std::endl;
+}
+// ----------------------------------------------------------------------------
+
 int main(int argc, char const* argv[]) {
   ConstructorsDemo();
   RAIIDemo();
+  // MonkeyPatchingDemo();
 }
