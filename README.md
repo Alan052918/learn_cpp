@@ -1,6 +1,6 @@
 # learn_cpp
 
-This is a repository for my C++ learning journey. Packages can be build with [Bazel](https://bazel.build), content loosely follows [cppreference.com](https://en.cppreference.com/w/cpp).
+This is a repository for my C++ learning journey. Packages can be build with [Bazel](https://bazel.build). Content loosely follows [cppreference.com](https://en.cppreference.com/w/cpp).
 
 ```bash
 # build and run meta (metaprogramming) package
