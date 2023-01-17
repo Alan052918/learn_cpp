@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "meta/common/demo_wrapper.h"
 #include "meta/common/print_containers.h"
 
 std::vector<std::string> Tokenize(const std::string &s) {
@@ -15,7 +16,7 @@ std::vector<std::string> Tokenize(const std::string &s) {
 }
 
 void SortDemo() {
-  std::cout << std::endl << " --- SortDemo --- " << std::endl;
+  demo::EnterScope("SortDemo");
 
   std::vector<int> nums{4, 5, 3, 6, 2, 5, 1};
   meta::common::Print("nums", nums);
@@ -52,10 +53,12 @@ void SortDemo() {
   std::cout << "sorted desc: ";
   meta::common::Print("words", words);
 
-  std::cout << std::endl << " --- SortDemo exit scope --- " << std::endl;
+  demo::ExitScope("SortDemo");
 }
 
 void LowerBoundDemo() {
+  demo::EnterScope("LowerBoundDemo");
+
   std::vector<int> numbers{1, 2, 3, 4, 5};
   std::cout << std::boolalpha;
   meta::common::Print("numbers", numbers);
@@ -84,15 +87,16 @@ void LowerBoundDemo() {
   result = std::lower_bound(std::next(numbers.begin(), 1), numbers.end(),
                             200 - numbers.front());
   std::cout << *result << " " << (result == numbers.end()) << std::endl;
+
+  demo::ExitScope("LowerBoundDemo");
 }
 
 void BinarySearchDemo() {
-  std::cout << std::endl << " --- BinarySearchDemo --- " << std::endl;
+  demo::EnterScope("BinarySearchDemo");
 
   LowerBoundDemo();
 
-  std::cout << std::endl
-            << " --- BinarySearchDemo exit scope --- " << std::endl;
+  demo::ExitScope("BinarySearchDemo");
 }
 
 int main() {
