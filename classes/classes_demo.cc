@@ -7,9 +7,10 @@
 #include "classes/common/file_handle.h"
 #include "classes/common/person.h"
 #include "classes/common/student.h"
+#include "meta/common/demo_wrapper.h"
 
 void ConstructorsDemo() {
-  std::cout << std::endl << " --- ConstructorDemo --- " << std::endl;
+  demo::EnterScope("ConstructorsDemo");
 
   std::vector<std::unique_ptr<Person>> people;
   people.reserve(3);
@@ -52,11 +53,11 @@ void ConstructorsDemo() {
   std::cout << "moved bob: " << moved_bob << std::endl;
   std::cout << "original bob: " << bob << std::endl;
 
-  std::cout << std::endl << " --- ConstructorDemo exit scope --- " << std::endl;
+  demo::ExitScope("ConstructorsDemo");
 }
 
 void RAIIDemo() {
-  std::cout << std::endl << " --- RAIIDemo --- " << std::endl;
+  demo::EnterScope("RAIIDemo");
 
   try {
     std::cout << "enter scope" << std::endl;
@@ -74,7 +75,7 @@ void RAIIDemo() {
     std::cerr << e.what() << std::endl;
   }
 
-  std::cout << std::endl << " --- RAIIDemo exit scope --- " << std::endl;
+  demo::ExitScope("RAIIDemo");
 }
 
 // ----------------------------------------------------------------------------
