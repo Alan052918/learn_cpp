@@ -7,14 +7,11 @@
 
 namespace demo {
 
-// C++20 concepts
-template <typename T>
-concept Callable = std::is_invocable_v<T>;
+void EnterScope(const std::string& name) {
+  std::cout << std::endl << " --- " << name << " enter scope --- " << std::endl;
+}
 
-template <Callable T>
-void Run(const std::string& name, T demo) {
-  std::cout << std::endl << " --- " << name << " --- " << std::endl;
-  demo();
+void ExitScope(const std::string& name) {
   std::cout << std::endl << " --- " << name << " exit scope --- " << std::endl;
 }
 
