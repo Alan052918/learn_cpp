@@ -4,4 +4,5 @@
 cc_binary(
     name = "strings",
     srcs = ["strings_demo.cc"],
+    deps = ["//meta:common"],
 )

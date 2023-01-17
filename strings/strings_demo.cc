@@ -2,6 +2,9 @@
 #include <string>
 #include <string_view>
 
+#include "meta/common/demo_wrapper.h"
+#include "meta/common/print_containers.h"
+
 void* operator new(size_t size) {
   std::cout << "Allocating " << size << " bytes" << std::endl;
   return malloc(size);
@@ -26,11 +29,15 @@ void Println(const std::string_view s) {
 }  // namespace strings::mem
 
 void MemoryAllocationDemo() {
+  demo::EnterScope("Memory Allocation Demo");
+
   std::string hello = "Hello World";
   strings::mem::Println(hello);
 
   std::string_view hello_view = "Hello World";
   strings::mem::Println(hello_view);
+
+  demo::ExitScope("Memory Allocation Demo");
 }
 
 namespace strings::trim {
@@ -91,7 +98,7 @@ void PrintTrailingComparison(std::string& s) {
 }  // namespace strings::trim
 
 void TrimDemo() {
-  std::cout << std::endl << " --- Trim Demo ---" << std::endl;
+  demo::EnterScope("Trim Demo");
 
   std::string s = "  Hello World  ";
   std::cout << "Before: '" << s << "'" << std::endl;
@@ -122,7 +129,7 @@ void TrimDemo() {
   s = "1.23000";
   strings::trim::PrintTrailingComparison(s);
 
-  std::cout << std::endl << " --- Trim Demo exit scope ---" << std::endl;
+  demo::ExitScope("Trim Demo");
 }
 
 int main() {
