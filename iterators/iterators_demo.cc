@@ -2,10 +2,11 @@
 #include <iterator>
 #include <vector>
 
+#include "meta/common/demo_wrapper.h"
 #include "meta/common/print_containers.h"
 
 void RangeAccessDemo() {
-  std::cout << std::endl << " --- RangeAccessDemo --- " << std::endl;
+  demo::EnterScope("RangeAccessDemo");
 
   std::vector<int> nums{1, 2, 3, 4, 5};
   meta::common::Print("nums", nums);
@@ -17,11 +18,11 @@ void RangeAccessDemo() {
                                                      std::next(nums.begin())};
   std::cout << "value of iter of iter: " << **nums_iters.begin() << std::endl;
 
-  std::cout << std::endl << " --- RangeAccessDemo exit scope --- " << std::endl;
+  demo::ExitScope("RangeAccessDemo");
 }
 
 void OperationsDemo() {
-  std::cout << std::endl << " --- OperationsDemo --- " << std::endl;
+  demo::EnterScope("OperationsDemo");
 
   std::vector<int> nums{1, 2, 3, 4, 5};
   meta::common::Print("nums", nums);
@@ -31,7 +32,7 @@ void OperationsDemo() {
   std::cout << "next element of nums.begin(): " << *std::next(nums_iter)
             << std::endl;
 
-  std::cout << std::endl << " --- OperationsDemo exit scope --- " << std::endl;
+  demo::ExitScope("OperationsDemo");
 }
 
 int main(int argc, const char* argv[]) {
