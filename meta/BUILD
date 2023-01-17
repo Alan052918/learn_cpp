@@ -3,7 +3,10 @@
 
 cc_library(
     name = "common",
-    hdrs = ["common/print_containers.h"],
+    hdrs = [
+        "common/demo_wrapper.h",
+        "common/print_containers.h",
+    ],
     visibility = ["//visibility:public"],
     deps = ["//classes:common"],
 )

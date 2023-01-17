@@ -6,14 +6,12 @@ cc_library(
     name = "common",
     srcs = [
         "common/book.cc",
-        "common/demo_wrapper.cc",
         "common/file_handle.cc",
         "common/person.cc",
         "common/student.cc",
     ],
     hdrs = [
         "common/book.h",
-        "common/demo_wrapper.h",
         "common/file_handle.h",
         "common/person.h",
         "common/student.h",
