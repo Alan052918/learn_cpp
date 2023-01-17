@@ -14,10 +14,11 @@
 #include <vector>
 
 #include "classes/common/person.h"
+#include "meta/common/demo_wrapper.h"
 #include "meta/common/print_containers.h"
 
 void TemplateFunctionsDemo() {
-  std::cout << std::endl << "--- MetaDemo ---" << std::endl;
+  demo::EnterScope("TemplateFunctionsDemo");
 
   std::vector<std::weak_ptr<Person>> people_vec;
 
@@ -45,7 +46,7 @@ void TemplateFunctionsDemo() {
   std::list<int> list{1, 2, 3};
   meta::common::Print("list", list);
 
-  std::cout << std::endl << "--- MetaDemo exit scope ---" << std::endl;
+  demo::ExitScope("TemplateFunctionsDemo");
 }
 
 int main() { TemplateFunctionsDemo(); }
