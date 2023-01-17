@@ -1,3 +1,5 @@
+workspace(name = "learn_cpp")
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 GOOGLETEST_COMMIT = "5ab508a01f9eb089207ee87fd547d290da39d015"
