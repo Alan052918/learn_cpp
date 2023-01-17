@@ -3,9 +3,10 @@
 
 #include "classes/common/file_handle.h"
 #include "classes/common/person.h"
+#include "meta/common/demo_wrapper.h"
 
 void UniquePointerDemo() {
-  std::cout << std::endl << " -- UniquePointerDemo -- " << std::endl;
+  demo::EnterScope("UniquePointerDemo");
 
   std::unique_ptr<FileHandle> uptr = std::make_unique<FileHandle>("myfile.txt");
   uptr->Append("Hello, World!");
@@ -19,11 +20,11 @@ void UniquePointerDemo() {
   uptr2->Append("I'm Junda.");
   std::cout << *uptr2;
 
-  std::cout << std::endl << " -- UniquePointerDemo exit scope -- " << std::endl;
+  demo::ExitScope("UniquePointerDemo");
 }
 
 void SharedPointerDemo() {
-  std::cout << std::endl << " -- SharedPointerDemo -- " << std::endl;
+  demo::EnterScope("SharedPointerDemo");
 
   Person alice("Alice");
   std::cout << "alice named object: " << alice.name() << std::endl << std::endl;
@@ -73,11 +74,11 @@ void SharedPointerDemo() {
             << " use_count=" << shared_alice.use_count()
             << " unique=" << shared_alice.unique() << std::endl;
 
-  std::cout << std::endl << " -- SharedPointerDemo exit scope-- " << std::endl;
+  demo::ExitScope("SharedPointerDemo");
 }
 
 void WeakPointerDemo() {
-  std::cout << std::endl << " -- WeakPointerDemo -- " << std::endl;
+  demo::EnterScope("WeakPointerDemo");
 
   auto shared_alice = std::make_shared<Person>("Alice");
 
@@ -97,12 +98,10 @@ void WeakPointerDemo() {
     std::cout << "weak_alice2 is a dangling pointer" << std::endl;
   }
 
-  std::cout << std::endl << " -- WeakPointerDemo exit scope -- " << std::endl;
+  demo::ExitScope("WeakPointerDemo");
 }
 
 int main(int argc, char const *argv[]) {
-  std::cout << std::boolalpha;
-
   UniquePointerDemo();
   SharedPointerDemo();
   WeakPointerDemo();

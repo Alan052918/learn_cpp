@@ -3,6 +3,9 @@
 
 cc_binary(
     name = "memory",
-    srcs = ["memory.cc"],
-    deps = ["//classes:common"],
+    srcs = ["memory_demo.cc"],
+    deps = [
+        "//classes:common",
+        "//meta:common",
+    ],
 )
