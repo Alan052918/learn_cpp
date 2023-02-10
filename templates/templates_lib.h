@@ -24,6 +24,13 @@ class Foo {
  public:
   Foo(int val);
 
+  const int val() const;
+  void val(const int val);
+
+ private:
+  int val_;
+
+ public:
   // friend templates
   // https://isocpp.org/wiki/faq/templates#template-friends
   // just put the friend template function definition in the class already
@@ -32,12 +39,6 @@ class Foo {
     for (const auto &foo : foos) os << foo.val_ << " ";
     return os;
   }
-
-  const int val() const;
-  void val(const int val);
-
- private:
-  int val_;
 };
 
 namespace templates {

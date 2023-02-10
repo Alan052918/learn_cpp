@@ -40,11 +40,6 @@ class Student : public Person {
 
   operator std::string() const noexcept override;
 
-  friend std::ostream &operator<<(std::ostream &os, const Student &student);
-
-  template <typename Container>
-  friend std::ostream &operator<<(std::ostream &os, const Container &container);
-
   const std::string PublicationsString() const override;
 
   const std::string TextBooksString() const;
@@ -57,6 +52,12 @@ class Student : public Person {
 
  private:
   std::vector<std::weak_ptr<Book>> text_books_;
+
+ public:
+  friend std::ostream &operator<<(std::ostream &os, const Student &student);
+
+  template <typename Container>
+  friend std::ostream &operator<<(std::ostream &os, const Container &container);
 };
 
 #endif  // CLASSES_COMMON_STUDENT_H_

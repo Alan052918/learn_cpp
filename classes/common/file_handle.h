@@ -12,13 +12,14 @@ class FileHandle {
 
   ~FileHandle();
 
-  friend std::ostream& operator<<(std::ostream& os, FileHandle& file_handle);
-
   void Append(const std::string& content);
 
  private:
   const std::string filename_;
   std::fstream file_;
+
+ public:
+  friend std::ostream& operator<<(std::ostream& os, FileHandle& file_handle);
 };
 
 #endif  // CLASSES_COMMON_FILE_H_

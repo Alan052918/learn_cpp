@@ -30,8 +30,6 @@ class Book : public std::enable_shared_from_this<Book> {
 
   operator std::string() const noexcept;
 
-  friend std::ostream &operator<<(std::ostream &os, const Book &book);
-
   const std::string AuthorsString() const;
 
   const std::string name() const;
@@ -46,6 +44,9 @@ class Book : public std::enable_shared_from_this<Book> {
  private:
   std::string name_;
   std::vector<std::weak_ptr<Person>> authors_;
+
+ public:
+  friend std::ostream &operator<<(std::ostream &os, const Book &book);
 };
 
 #endif  // COMMON_BOOK_H_
