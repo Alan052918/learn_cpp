@@ -53,7 +53,7 @@ Person& Person::operator=(const Person& another) noexcept = default;
 Person& Person::operator=(Person&& another) noexcept = default;
 
 // bool conversion operator
-Person::operator bool() const noexcept { return !name_.empty() & &age_ > 0; }
+Person::operator bool() const noexcept { return !name_.empty() && age_ > 0; }
 
 // std::string conversion operator
 Person::operator std::string() const noexcept {
