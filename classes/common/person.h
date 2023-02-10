@@ -71,6 +71,7 @@ class Person : public std::enable_shared_from_this<Person> {
 
   std::vector<std::weak_ptr<Book>> publications() const;
   void publications(const std::vector<std::weak_ptr<Book>>& new_publications);
+
   void AddPublication(const std::shared_ptr<Book>& new_publication);
   void RemovePublication(const std::shared_ptr<Book>& rm_publication);
   void ClearPublications();

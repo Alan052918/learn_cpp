@@ -23,7 +23,6 @@ class Student : public Person {
   Student();
 
   Student(const Student& another) noexcept;
-
   Student(Student&& another) noexcept;
 
   // the `override` keyword ensures that
@@ -34,19 +33,17 @@ class Student : public Person {
   ~Student() override;
 
   Student& operator=(const Student& another) noexcept;
-
   Student& operator=(Student&& another) noexcept;
 
   explicit operator bool() const noexcept override;
-
   operator std::string() const noexcept override;
 
   const std::string PublicationsString() const override;
-
   const std::string TextBooksString() const;
 
   const std::vector<std::weak_ptr<Book>> text_books() const;
   void text_books(const std::vector<std::weak_ptr<Book>>& new_text_books);
+
   void AddTextBook(const std::shared_ptr<Book>& new_text_book);
   void RemoveTextBook(const std::shared_ptr<Book>& rm_text_book);
   void ClearTextBooks();

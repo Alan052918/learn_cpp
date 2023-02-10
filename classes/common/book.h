@@ -19,17 +19,14 @@ class Book : public std::enable_shared_from_this<Book> {
   Book(const std::string& name);
 
   Book(const Book& another) noexcept;
-
   Book(Book&& another) noexcept;
 
   ~Book();
 
   Book& operator=(const Book& another) noexcept;
-
   Book& operator=(Book&& another) noexcept;
 
   explicit operator bool() const noexcept;
-
   operator std::string() const noexcept;
 
   const std::string AuthorsString() const;
@@ -39,6 +36,7 @@ class Book : public std::enable_shared_from_this<Book> {
 
   const std::vector<std::weak_ptr<Person>> authors() const;
   void authors(const std::vector<std::weak_ptr<Person>>& new_authors);
+
   void AddAuthor(const std::shared_ptr<Person>& new_author);
   void RemoveAuthor(const std::shared_ptr<Person>& rm_author);
   void ClearAuthors();
