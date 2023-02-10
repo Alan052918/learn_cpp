@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #include "classes/common/concepts.h"
@@ -48,6 +49,34 @@ class Book : public std::enable_shared_from_this<Book> {
 
  public:
   friend std::ostream& operator<<(std::ostream& os, const Book& book);
+
+  template <ec::ElementContainer<Book> Container>
+  friend std::ostream& operator<<(std::ostream& os, const Container& books) {
+    os << "Books {" << std::endl;
+    for (const auto& book : books) std::cout << "  " << book << std::endl;
+    os << "}" << std::endl;
+    return os;
+  }
+
+  template <ec::ElementPtrContainer<Book> PtrContainer>
+  friend std::ostream& operator<<(std::ostream& os, const PtrContainer& books) {
+    os << "Books {" << std::endl;
+    for (const auto& book : books) {
+      std::cout << "  ";
+      if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                   std::unique_ptr<Book>>) {
+        os << *book << std::endl;
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                          std::shared_ptr<Book>>) {
+        os << *book << std::endl;
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                          std::weak_ptr<Book>>) {
+        if (!book.expired()) os << *book.lock() << std::endl;
+      }
+    }
+    os << "}" << std::endl;
+    return os;
+  }
 };
 
 #endif  // COMMON_BOOK_H_

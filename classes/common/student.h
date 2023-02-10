@@ -4,10 +4,11 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 #include "classes/common/book.h"
-#include "classes/common/person.h"
+#include "classes/common/concepts.h"
 
 class Student : public Person {
  public:
@@ -56,8 +57,34 @@ class Student : public Person {
  public:
   friend std::ostream& operator<<(std::ostream& os, const Student& student);
 
-  template <typename Container>
-  friend std::ostream& operator<<(std::ostream& os, const Container& container);
+  template <ec::ElementContainer<Student> Container>
+  friend std::ostream& operator<<(std::ostream& os, const Container& students) {
+    os << "Students {" << std::endl;
+    for (const auto& student : students) os << "  " << student << std::endl;
+    os << "}" << std::endl;
+    return os;
+  }
+
+  template <ec::ElementPtrContainer<Student> PtrContainer>
+  friend std::ostream& operator<<(std::ostream& os,
+                                  const PtrContainer& students) {
+    os << "Students {" << std::endl;
+    for (const auto& student : students) {
+      std::cout << "  ";
+      if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                   std::unique_ptr<Student>>) {
+        os << *student << std::endl;
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                          std::shared_ptr<Student>>) {
+        os << *student << std::endl;
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
+                                          std::weak_ptr<Student>>) {
+        if (!student.expired()) os << *student.lock() << std::endl;
+      }
+    }
+    os << "}" << std::endl;
+    return os;
+  }
 };
 
 #endif  // CLASSES_COMMON_STUDENT_H_

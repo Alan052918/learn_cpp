@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "classes/common/book.h"
+#include "classes/common/concepts.h"
 
 // forward declaration
 // to resolve circular dependency
@@ -80,33 +81,36 @@ class Person : public std::enable_shared_from_this<Person> {
   int age_;
   std::vector<std::weak_ptr<Book>> publications_;
 
- public:
   // friends
-
+ public:
   // std::ostream insertion operators
   // leading `friend` keyword: this function
   // - is a non-member function
   // - have access to the class's private members
   friend std::ostream& operator<<(std::ostream& os, const Person& person);
 
-  template <typename Container>
-  friend std::enable_if_t<
-      std::is_same_v<typename Container::value_type, std::unique_ptr<Person>> ||
-          std::is_same_v<typename Container::value_type,
-                         std::shared_ptr<Person>> ||
-          std::is_same_v<typename Container::value_type, std::weak_ptr<Person>>,
-      std::ostream&>
-  operator<<(std::ostream& os, const Container& people) {
+  // using C++20 concepts
+  template <ec::ElementContainer<Person> Container>
+  friend std::ostream& operator<<(std::ostream& os, const Container& people) {
+    os << "People {" << std::endl;
+    for (const auto& person : people) std::cout << "  " << person << std::endl;
+    os << "}" << std::endl;
+    return os;
+  }
+
+  template <ec::ElementPtrContainer<Person> PtrContainer>
+  friend std::ostream& operator<<(std::ostream& os,
+                                  const PtrContainer& people) {
     os << "People {" << std::endl;
     for (const auto& person : people) {
       std::cout << "  ";
-      if constexpr (std::is_same_v<typename Container::value_type,
+      if constexpr (std::is_same_v<typename PtrContainer::value_type,
                                    std::unique_ptr<Person>>) {
         os << *person << std::endl;
-      } else if constexpr (std::is_same_v<typename Container::value_type,
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
                                           std::shared_ptr<Person>>) {
         os << *person << std::endl;
-      } else if constexpr (std::is_same_v<typename Container::value_type,
+      } else if constexpr (std::is_same_v<typename PtrContainer::value_type,
                                           std::weak_ptr<Person>>) {
         if (!person.expired()) os << *person.lock() << std::endl;
       }

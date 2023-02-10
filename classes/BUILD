@@ -12,6 +12,7 @@ cc_library(
     ],
     hdrs = [
         "common/book.h",
+        "common/concepts.h",
         "common/file_handle.h",
         "common/person.h",
         "common/student.h",
