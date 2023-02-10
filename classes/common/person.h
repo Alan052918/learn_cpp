@@ -9,6 +9,8 @@
 
 #include "classes/common/book.h"
 
+// forward declaration
+// to resolve circular dependency
 class Book;
 
 class Person : public std::enable_shared_from_this<Person> {
