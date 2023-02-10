@@ -1,6 +1,7 @@
 #ifndef CLASSES_COMMON_CONCEPTS_H_
 #define CLASSES_COMMON_CONCEPTS_H_
 
+#include <concepts>
 #include <memory>
 #include <type_traits>
 
