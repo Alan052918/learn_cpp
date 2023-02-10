@@ -5,26 +5,27 @@
 #include <string>
 #include <vector>
 
+#include "classes/common/concepts.h"
 #include "classes/common/person.h"
 
 class Person;
 
 class Book : public std::enable_shared_from_this<Book> {
  public:
-  Book(const std::string &name,
-       const std::vector<std::weak_ptr<Person>> &authors);
+  Book(const std::string& name,
+       const std::vector<std::weak_ptr<Person>>& authors);
 
-  Book(const std::string &name);
+  Book(const std::string& name);
 
-  Book(const Book &another) noexcept;
+  Book(const Book& another) noexcept;
 
-  Book(Book &&another) noexcept;
+  Book(Book&& another) noexcept;
 
   ~Book();
 
-  Book &operator=(const Book &another) noexcept;
+  Book& operator=(const Book& another) noexcept;
 
-  Book &operator=(Book &&another) noexcept;
+  Book& operator=(Book&& another) noexcept;
 
   explicit operator bool() const noexcept;
 
@@ -33,12 +34,12 @@ class Book : public std::enable_shared_from_this<Book> {
   const std::string AuthorsString() const;
 
   const std::string name() const;
-  void name(const std::string &new_name);
+  void name(const std::string& new_name);
 
   const std::vector<std::weak_ptr<Person>> authors() const;
-  void authors(const std::vector<std::weak_ptr<Person>> &new_authors);
-  void AddAuthor(const std::shared_ptr<Person> &new_author);
-  void RemoveAuthor(const std::shared_ptr<Person> &rm_author);
+  void authors(const std::vector<std::weak_ptr<Person>>& new_authors);
+  void AddAuthor(const std::shared_ptr<Person>& new_author);
+  void RemoveAuthor(const std::shared_ptr<Person>& rm_author);
   void ClearAuthors();
 
  private:
@@ -46,7 +47,7 @@ class Book : public std::enable_shared_from_this<Book> {
   std::vector<std::weak_ptr<Person>> authors_;
 
  public:
-  friend std::ostream &operator<<(std::ostream &os, const Book &book);
+  friend std::ostream& operator<<(std::ostream& os, const Book& book);
 };
 
 #endif  // COMMON_BOOK_H_

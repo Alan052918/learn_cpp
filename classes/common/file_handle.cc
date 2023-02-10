@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-FileHandle::FileHandle(const std::string &filename)
+FileHandle::FileHandle(const std::string& filename)
     : filename_(filename),
       file_(std::fstream(filename,
                          std::ios::in | std::ios::out | std::ios::trunc)) {
@@ -17,7 +17,7 @@ FileHandle::~FileHandle() {
   std::cout << "[FileHandle] destructor: closing " << filename_ << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &os, FileHandle &file_handle) {
+std::ostream& operator<<(std::ostream& os, FileHandle& file_handle) {
   // set read position to the beginning of the stream
   file_handle.file_.seekg(0, std::ios::beg);
 
@@ -32,7 +32,7 @@ std::ostream &operator<<(std::ostream &os, FileHandle &file_handle) {
   return os;
 }
 
-void FileHandle::Append(const std::string &content) {
+void FileHandle::Append(const std::string& content) {
   // set write position to the end of the stream
   file_.seekp(0, std::ios::end);
 
