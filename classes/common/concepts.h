@@ -5,7 +5,7 @@
 #include <type_traits>
 
 // ec for element container
-namespace ec {
+namespace classes::common {
 
 template <typename Container, class Element>
 concept ElementContainer =
@@ -17,6 +17,6 @@ concept ElementPtrContainer =
     std::is_same_v<typename Container::value_type, std::shared_ptr<Element>> ||
     std::is_same_v<typename Container::value_type, std::weak_ptr<Element>>;
 
-}  // namespace ec
+}  // namespace classes::common
 
 #endif  // CLASSES_COMMON_CONCEPTS_H_

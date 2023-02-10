@@ -90,7 +90,7 @@ class Person : public std::enable_shared_from_this<Person> {
   friend std::ostream& operator<<(std::ostream& os, const Person& person);
 
   // using C++20 concepts
-  template <ec::ElementContainer<Person> Container>
+  template <classes::common::ElementContainer<Person> Container>
   friend std::ostream& operator<<(std::ostream& os, const Container& people) {
     os << "People {" << std::endl;
     for (const auto& person : people) std::cout << "  " << person << std::endl;
@@ -98,7 +98,7 @@ class Person : public std::enable_shared_from_this<Person> {
     return os;
   }
 
-  template <ec::ElementPtrContainer<Person> PtrContainer>
+  template <classes::common::ElementPtrContainer<Person> PtrContainer>
   friend std::ostream& operator<<(std::ostream& os,
                                   const PtrContainer& people) {
     os << "People {" << std::endl;

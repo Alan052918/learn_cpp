@@ -57,7 +57,7 @@ class Student : public Person {
  public:
   friend std::ostream& operator<<(std::ostream& os, const Student& student);
 
-  template <ec::ElementContainer<Student> Container>
+  template <classes::common::ElementContainer<Student> Container>
   friend std::ostream& operator<<(std::ostream& os, const Container& students) {
     os << "Students {" << std::endl;
     for (const auto& student : students) os << "  " << student << std::endl;
@@ -65,7 +65,7 @@ class Student : public Person {
     return os;
   }
 
-  template <ec::ElementPtrContainer<Student> PtrContainer>
+  template <classes::common::ElementPtrContainer<Student> PtrContainer>
   friend std::ostream& operator<<(std::ostream& os,
                                   const PtrContainer& students) {
     os << "Students {" << std::endl;

@@ -50,7 +50,7 @@ class Book : public std::enable_shared_from_this<Book> {
  public:
   friend std::ostream& operator<<(std::ostream& os, const Book& book);
 
-  template <ec::ElementContainer<Book> Container>
+  template <classes::common::ElementContainer<Book> Container>
   friend std::ostream& operator<<(std::ostream& os, const Container& books) {
     os << "Books {" << std::endl;
     for (const auto& book : books) std::cout << "  " << book << std::endl;
@@ -58,7 +58,7 @@ class Book : public std::enable_shared_from_this<Book> {
     return os;
   }
 
-  template <ec::ElementPtrContainer<Book> PtrContainer>
+  template <classes::common::ElementPtrContainer<Book> PtrContainer>
   friend std::ostream& operator<<(std::ostream& os, const PtrContainer& books) {
     os << "Books {" << std::endl;
     for (const auto& book : books) {
