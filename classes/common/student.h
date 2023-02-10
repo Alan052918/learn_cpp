@@ -11,19 +11,19 @@
 
 class Student : public Person {
  public:
-  Student(const std::string &name, const int age,
-          const std::vector<std::weak_ptr<Book>> &publications,
-          const std::vector<std::weak_ptr<Book>> &text_books);
+  Student(const std::string& name, const int age,
+          const std::vector<std::weak_ptr<Book>>& publications,
+          const std::vector<std::weak_ptr<Book>>& text_books);
 
-  Student(const std::string &name, const int age);
-  Student(const std::string &name, const int age,
-          const std::vector<std::weak_ptr<Book>> &text_books);
+  Student(const std::string& name, const int age);
+  Student(const std::string& name, const int age,
+          const std::vector<std::weak_ptr<Book>>& text_books);
 
   Student();
 
-  Student(const Student &another) noexcept;
+  Student(const Student& another) noexcept;
 
-  Student(Student &&another) noexcept;
+  Student(Student&& another) noexcept;
 
   // the `override` keyword ensures that
   // - the function is virtual
@@ -32,9 +32,9 @@ class Student : public Person {
   // overrides a base class destructor declared virtual
   ~Student() override;
 
-  Student &operator=(const Student &another) noexcept;
+  Student& operator=(const Student& another) noexcept;
 
-  Student &operator=(Student &&another) noexcept;
+  Student& operator=(Student&& another) noexcept;
 
   explicit operator bool() const noexcept override;
 
@@ -45,19 +45,19 @@ class Student : public Person {
   const std::string TextBooksString() const;
 
   const std::vector<std::weak_ptr<Book>> text_books() const;
-  void text_books(const std::vector<std::weak_ptr<Book>> &new_text_books);
-  void AddTextBook(const std::shared_ptr<Book> &new_text_book);
-  void RemoveTextBook(const std::shared_ptr<Book> &rm_text_book);
+  void text_books(const std::vector<std::weak_ptr<Book>>& new_text_books);
+  void AddTextBook(const std::shared_ptr<Book>& new_text_book);
+  void RemoveTextBook(const std::shared_ptr<Book>& rm_text_book);
   void ClearTextBooks();
 
  private:
   std::vector<std::weak_ptr<Book>> text_books_;
 
  public:
-  friend std::ostream &operator<<(std::ostream &os, const Student &student);
+  friend std::ostream& operator<<(std::ostream& os, const Student& student);
 
   template <typename Container>
-  friend std::ostream &operator<<(std::ostream &os, const Container &container);
+  friend std::ostream& operator<<(std::ostream& os, const Container& container);
 };
 
 #endif  // CLASSES_COMMON_STUDENT_H_
