@@ -17,6 +17,13 @@ FileHandle::~FileHandle() {
   std::cout << "[FileHandle] destructor: closing " << filename_ << std::endl;
 }
 
+void FileHandle::Append(const std::string& content) {
+  // set write position to the end of the stream
+  file_.seekp(0, std::ios::end);
+
+  file_ << content << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, FileHandle& file_handle) {
   // set read position to the beginning of the stream
   file_handle.file_.seekg(0, std::ios::beg);
@@ -30,11 +37,4 @@ std::ostream& operator<<(std::ostream& os, FileHandle& file_handle) {
   file_handle.file_.clear();
 
   return os;
-}
-
-void FileHandle::Append(const std::string& content) {
-  // set write position to the end of the stream
-  file_.seekp(0, std::ios::end);
-
-  file_ << content << std::endl;
 }
