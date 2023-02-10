@@ -59,6 +59,30 @@ class Person : public std::enable_shared_from_this<Person> {
   // trailing `const` keyword: this function does not modify class data members
   virtual operator std::string() const noexcept;
 
+  virtual const std::string PublicationsString() const;
+
+  // getters and setters
+  const std::string name() const;
+  void name(const std::string& new_name);
+
+  const int age() const;
+  void age(const int new_age);
+
+  std::vector<std::weak_ptr<Book>> publications() const;
+  void publications(const std::vector<std::weak_ptr<Book>>& new_publications);
+  void AddPublication(const std::shared_ptr<Book>& new_publication);
+  void RemovePublication(const std::shared_ptr<Book>& rm_publication);
+  void ClearPublications();
+
+  // protected: accessible by itself and derived classes
+ protected:
+  std::string name_;
+  int age_;
+  std::vector<std::weak_ptr<Book>> publications_;
+
+ public:
+  // friends
+
   // std::ostream insertion operators
   // leading `friend` keyword: this function
   // - is a non-member function
@@ -90,27 +114,6 @@ class Person : public std::enable_shared_from_this<Person> {
     os << "}" << std::endl;
     return os;
   }
-
-  virtual const std::string PublicationsString() const;
-
-  // getters and setters
-  const std::string name() const;
-  void name(const std::string& new_name);
-
-  const int age() const;
-  void age(const int new_age);
-
-  std::vector<std::weak_ptr<Book>> publications() const;
-  void publications(const std::vector<std::weak_ptr<Book>>& new_publications);
-  void AddPublication(const std::shared_ptr<Book>& new_publication);
-  void RemovePublication(const std::shared_ptr<Book>& rm_publication);
-  void ClearPublications();
-
-  // protected: accessible by itself and derived classes
- protected:
-  std::string name_;
-  int age_;
-  std::vector<std::weak_ptr<Book>> publications_;
 };
 
 #endif  // CLASSES_COMMON_PERSON_H_
