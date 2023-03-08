@@ -9,6 +9,7 @@ cc_library(
         "common/file_handle.cc",
         "common/person.cc",
         "common/student.cc",
+        "common/widget.cc",
     ],
     hdrs = [
         "common/book.h",
@@ -16,6 +17,7 @@ cc_library(
         "common/file_handle.h",
         "common/person.h",
         "common/student.h",
+        "common/widget.h",
     ],
     visibility = ["//visibility:public"],
 )
