@@ -7,6 +7,7 @@
 #include "classes/common/file_handle.h"
 #include "classes/common/person.h"
 #include "classes/common/student.h"
+#include "classes/common/widget.h"
 #include "meta/common/demo_wrapper.h"
 
 void ConstructorsDemo() {
@@ -114,8 +115,18 @@ void MonkeyPatchingDemo() {
 }
 // ----------------------------------------------------------------------------
 
+void PImplDemo() {
+  demo::EnterScope("PImplDemo");
+
+  Widget widget(42);
+  widget.Draw();
+
+  demo::ExitScope("PImplDemo");
+}
+
 int main(int argc, char const* argv[]) {
   ConstructorsDemo();
   RAIIDemo();
   // MonkeyPatchingDemo();
+  PImplDemo();
 }
