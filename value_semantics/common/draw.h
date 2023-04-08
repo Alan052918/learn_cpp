@@ -1,7 +1,7 @@
 #ifndef VALUE_SEMANTICS_DRAW_H_
 #define VALUE_SEMANTICS_DRAW_H_
 
-#include <utility>
+#include <variant>
 #include <vector>
 
 #include "value_semantics/common/circle.h"
