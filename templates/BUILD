@@ -36,6 +36,6 @@ cc_test(
     srcs = ["common/print_containers_test.cc"],
     deps = [
         "//templates:common",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )
