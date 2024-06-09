@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "f1ad16a87cb0aa3302bfbb405501daa074969623ca79b5c155c2ba006153f540",
+  "moduleFileHash": "136d551ae14c270387a088963ad082787f98e6ec0444865964e3a50af7d8cc40",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -17,10 +17,10 @@
   },
   "moduleDepGraph": {
     "<root>": {
-      "name": "learn_cpp",
+      "name": "lcrcc",
       "version": "1.0",
       "key": "<root>",
-      "repoName": "learn_cpp",
+      "repoName": "lcrcc",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [],
       "extensionUsages": [],

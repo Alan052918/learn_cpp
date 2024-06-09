@@ -5,8 +5,10 @@
 # For more details, please check https://github.com/bazelbuild/bazel/issues/18958
 ###############################################################################
 
+"""bazel module"""
+
 module(
-    name = "learn_cpp",
+    name = "lcrcc",
     version = "1.0",
 )
 

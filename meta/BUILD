@@ -26,6 +26,6 @@ cc_test(
     deps = [
         "//classes:common",
         "//meta:common",
-        "@com_google_googletest//:gtest_main",
+        "@googletest//:gtest_main",
     ],
 )

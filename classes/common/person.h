@@ -90,7 +90,9 @@ class Person : public std::enable_shared_from_this<Person> {
   // - have access to the class's private members
   friend std::ostream& operator<<(std::ostream& os, const Person& person);
 
-  // using C++20 concepts
+  // member templates using C++20 concepts
+  // template friends should be defined in the header file for implicit
+  // instantiations
   template <classes::common::ElementContainer<Person> Container>
   friend std::ostream& operator<<(std::ostream& os, const Container& people) {
     os << "People {" << std::endl;
