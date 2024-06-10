@@ -10,6 +10,9 @@ cc_library(
         "common/truck.h",
         "common/vehicle.h",
     ],
+    srcs = [
+        "common/car.cc",
+    ],
     visibility = ["//visibility:public"],
 )
 
